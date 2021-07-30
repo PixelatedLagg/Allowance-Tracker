@@ -146,7 +146,7 @@ namespace Allowance_Tracker
             this.logInButton.TabIndex = 7;
             this.logInButton.Text = "Log In";
             this.logInButton.UseVisualStyleBackColor = true;
-            this.logInButton.Click += new System.EventHandler(this.button2_Click);
+            this.logInButton.Click += new System.EventHandler(this.logInButton_Click);
             // 
             // errorText
             // 

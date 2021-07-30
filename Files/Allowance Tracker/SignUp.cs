@@ -7,20 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-namespace Allowance_Tracker
-{
-    public partial class SignUp : Form
-    {
+using System.IO;
+namespace Allowance_Tracker { public partial class SignUp : Form { 
         public SignUp() { InitializeComponent(); }
-        private void button2_Click(object sender, EventArgs e)
-        {
-            string usernameInput = usernameBox.Text;
-            string passwordInput = passwordBox.Text;
-            Variables.SetVariables(passwordInput, usernameInput);
+        private void signUpButton_Click(object sender, EventArgs e) {
+            using (StreamReader sr = new StreamReader("AllowanceData.txt")) {
+                if (sr.ReadLine() != null) {
+                    errorBox.Text = "Cannot sign up twice!";
+                    return;
+                }
+            }
+            if (string.IsNullOrWhiteSpace(passwordBox.Text) || string.IsNullOrWhiteSpace(usernameBox.Text)) {
+                errorBox.Text = "Enter all fields!";
+                return;
+            }
+            errorBox.Text = "";
+            Variables.SetVariables(passwordBox.Text, usernameBox.Text);
         }
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
+        private void hidePassword_CheckedChanged(object sender, EventArgs e) {
             if (passwordBox.UseSystemPasswordChar == true) { passwordBox.UseSystemPasswordChar = false; return; }
             else { passwordBox.UseSystemPasswordChar = true; return; }
         }

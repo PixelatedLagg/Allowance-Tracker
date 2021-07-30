@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Allowance Tracker.exe" size="28688">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Allowance Tracker.exe" size="29712">
       <assemblyIdentity name="Allowance Tracker" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>EV+MUNn9yKLavmspzf/D8SOhSRpOEqLFp8MXWyTez7A=</dsig:DigestValue>
+        <dsig:DigestValue>AW72QEA6jc0a9toV7rsXJbbokEp96ERpsJrtUmKVyXA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

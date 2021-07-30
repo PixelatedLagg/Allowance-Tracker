@@ -3,11 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-namespace Allowance_Tracker
-{
-    public static class Variables
-    {
+using System.IO;
+namespace Allowance_Tracker { public static class Variables { 
         public static string password;
         public static string username;
         /// <summary>
@@ -22,17 +19,27 @@ namespace Allowance_Tracker
         /// Main page form.
         /// </summary>
         public static Mainpage mainpage = new Mainpage();
-        public static void SetVariables(string p, string u)
-        {
-            p = password;
-            u = username;
-            //write password to text file
-            //write username to text file
+        public static void SetVariables(string p, string u) {
+            using (StreamWriter sw = new StreamWriter("AllowanceData.txt")) {
+                sw.WriteLine($"{u}{Environment.NewLine}{p}");
+                sw.Close();
+            }
+            EncryptFile();
         }
-        public static void GetVariables()
-        {
-            //password = read password on text file
-            //username = read username on text file
+        public static void GetVariables() {
+            DecryptFile();
+            using (StreamReader sr = new StreamReader("AllowanceData.txt")) {
+                username = sr.ReadLine();
+                password = sr.ReadLine();
+                sr.Close();
+            }
+            EncryptFile();
+        }
+        public static void EncryptFile() { 
+            //add encryption
+        }
+        public static void DecryptFile() { 
+            //add decryption
         }
     }
 }

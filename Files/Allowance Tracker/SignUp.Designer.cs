@@ -36,7 +36,7 @@ namespace Allowance_Tracker
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.errorBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // passwordBox
@@ -70,7 +70,7 @@ namespace Allowance_Tracker
             this.signUpButton.TabIndex = 8;
             this.signUpButton.Text = "Sign Up";
             this.signUpButton.UseVisualStyleBackColor = true;
-            this.signUpButton.Click += new System.EventHandler(this.button2_Click);
+            this.signUpButton.Click += new System.EventHandler(this.signUpButton_Click);
             // 
             // hidePassword
             // 
@@ -83,7 +83,7 @@ namespace Allowance_Tracker
             this.hidePassword.TabIndex = 11;
             this.hidePassword.Text = "Hide Password";
             this.hidePassword.UseVisualStyleBackColor = true;
-            this.hidePassword.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.hidePassword.CheckedChanged += new System.EventHandler(this.hidePassword_CheckedChanged);
             // 
             // textBox2
             // 
@@ -130,19 +130,20 @@ namespace Allowance_Tracker
             this.textBox5.Text = "Password:";
             this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox7
+            // errorBox
             // 
-            this.textBox7.AccessibleName = "error";
-            this.textBox7.BackColor = System.Drawing.Color.White;
-            this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.textBox7.ForeColor = System.Drawing.Color.Crimson;
-            this.textBox7.Location = new System.Drawing.Point(12, 347);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(360, 23);
-            this.textBox7.TabIndex = 15;
-            this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.errorBox.AccessibleName = "error";
+            this.errorBox.BackColor = System.Drawing.Color.White;
+            this.errorBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.errorBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.errorBox.ForeColor = System.Drawing.Color.Crimson;
+            this.errorBox.Location = new System.Drawing.Point(12, 347);
+            this.errorBox.Multiline = true;
+            this.errorBox.Name = "errorBox";
+            this.errorBox.ReadOnly = true;
+            this.errorBox.Size = new System.Drawing.Size(360, 60);
+            this.errorBox.TabIndex = 15;
+            this.errorBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // SignUp
             // 
@@ -150,7 +151,7 @@ namespace Allowance_Tracker
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(384, 461);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.errorBox);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
@@ -175,6 +176,6 @@ namespace Allowance_Tracker
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox errorBox;
     }
 }
