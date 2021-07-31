@@ -23,6 +23,9 @@ namespace Allowance_Tracker { public partial class SignUp : Form {
             }
             errorBox.Text = "";
             Variables.SetVariables(passwordBox.Text, usernameBox.Text);
+            this.Hide();
+            Variables.login.ShowDialog();
+            this.Close();
         }
         private void hidePassword_CheckedChanged(object sender, EventArgs e) {
             if (passwordBox.UseSystemPasswordChar == true) { passwordBox.UseSystemPasswordChar = false; return; }

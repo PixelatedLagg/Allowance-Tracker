@@ -12,8 +12,9 @@ using System.IO;
 
 namespace Allowance_Tracker { public partial class Login : Form {
         public Login() { InitializeComponent(); }
-        private void logInButton_Click(object sender, EventArgs e) { 
-            Variables.GetVariables();
+        private void logInButton_Click(object sender, EventArgs e) {
+            try { Variables.GetVariables(); }
+            catch { errorText.Text = "Create an account!"; return; }
             if (passwordBox.Text != Variables.password || usernameBox.Text != Variables.username) {
                 errorText.Text = "Username or password is incorrect!";
                 return;
@@ -22,8 +23,6 @@ namespace Allowance_Tracker { public partial class Login : Form {
             Variables.mainpage.ShowDialog();
             this.Close();
         }
-        public void BlankError() { errorText.Text = "Enter all fields!"; return; }
-        public void EmailError() { errorText.Text = "Enter a valid email!"; return; }
         private void HidePassword_CheckedChanged(object sender, EventArgs e) {
             if (passwordBox.UseSystemPasswordChar == true) { passwordBox.UseSystemPasswordChar = false; return; }
             else { passwordBox.UseSystemPasswordChar = true; return; }
